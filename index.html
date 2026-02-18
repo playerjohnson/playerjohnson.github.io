@@ -3,33 +3,283 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Player Johnson — Developer Tools, Trading Indicators & Freelance Development</title>
-<meta name="description" content="Developer tools, public sector utilities, everyday calculators, ICT trading indicators, and freelance .NET/Azure development by Anthony D Johnson.">
+<title>Anthony D Johnson — Developer Portfolio</title>
+<meta name="description" content="Senior .NET & Azure developer with 9+ years in UK government. Free tools, trading indicators, and freelance services. 6 live products, 40+ tools, 126 pages.">
+<link rel="canonical" href="https://playerjohnson.github.io/">
+<meta property="og:title" content="Anthony D Johnson — Developer Portfolio">
+<meta property="og:description" content="Senior .NET & Azure developer. Free tools, trading indicators & freelance services. 6 live products built for UK professionals.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://playerjohnson.github.io/">
+<meta property="og:image" content="https://playerjohnson.github.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Anthony D Johnson — Developer Portfolio">
+<meta name="twitter:description" content="Senior .NET & Azure developer. Free tools, trading indicators & freelance services.">
+<meta name="twitter:image" content="https://playerjohnson.github.io/og-image.png">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Anthony D Johnson",
+  "jobTitle": "Senior .NET & Azure Developer",
+  "url": "https://playerjohnson.github.io/",
+  "email": "johnsons496@googlemail.com",
+  "sameAs": [
+    "https://playerjohnson.github.io/freelance-dev/",
+    "https://playerjohnson.github.io/ict-edge-indicators/",
+    "https://playerjohnson.github.io/uk-devtools/",
+    "https://playerjohnson.github.io/quickdev-tools/",
+    "https://playerjohnson.github.io/public-sector-tools/",
+    "https://playerjohnson.github.io/everyday-tools/",
+    "https://github.com/playerjohnson"
+  ],
+  "knowsAbout": [".NET", "Azure", "Cloud Migration", "DevOps", "TradingView Pine Script"],
+  "address": {"@type": "PostalAddress", "addressLocality": "Peterborough", "addressCountry": "GB"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Developer Portfolio",
+  "numberOfItems": 6,
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Freelance .NET & Azure Development", "url": "https://playerjohnson.github.io/freelance-dev/"},
+    {"@type": "ListItem", "position": 2, "name": "ICT Edge Trading Indicators", "url": "https://playerjohnson.github.io/ict-edge-indicators/"},
+    {"@type": "ListItem", "position": 3, "name": "UK Calculator Hub", "url": "https://playerjohnson.github.io/uk-devtools/"},
+    {"@type": "ListItem", "position": 4, "name": "QuickDev Tools", "url": "https://playerjohnson.github.io/quickdev-tools/"},
+    {"@type": "ListItem", "position": 5, "name": "Public Sector Tools", "url": "https://playerjohnson.github.io/public-sector-tools/"},
+    {"@type": "ListItem", "position": 6, "name": "Everyday Tools", "url": "https://playerjohnson.github.io/everyday-tools/"}
+  ]
+}
+</script>
+<script>
+(function(){
+  var c=localStorage.getItem('pj_cookie_consent');
+  if(c==='accepted'){
+    var s=document.createElement('script');s.src='https://www.googletagmanager.com/gtag/js?id=G-PMSE15GDWY';s.async=true;document.head.appendChild(s);
+    window.dataLayer=window.dataLayer||[];function g(){dataLayer.push(arguments);}g('js',new Date());g('config','G-PMSE15GDWY',{send_page_view:true,cookie_flags:'SameSite=None;Secure'});window.gtag=g;
+  }
+})();
+</script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,system-ui,sans-serif;background:#0b0f19;color:#e2e8f0;min-height:100vh;display:flex;align-items:center;justify-content:center}
-.wrap{max-width:600px;padding:40px 24px;text-align:center}
-h1{font-size:1.8rem;margin-bottom:8px}
-p{color:#94a3b8;margin-bottom:32px}
-.grid{display:grid;gap:12px}
-a.card{display:block;padding:16px 20px;background:#1e293b;border-radius:8px;color:#e2e8f0;text-decoration:none;text-align:left;transition:background .2s}
-a.card:hover{background:#334155}
-.card small{color:#64748b;font-size:.82rem}
-.featured{border:1px solid #f59e0b}
+:root{
+  --bg-deep:#090d1a;--bg-surface:#0f1729;--bg-card:#151d33;--bg-card-hover:#1a2440;
+  --text-primary:#f0f2f8;--text-secondary:#b8bfce;--text-muted:#7c849a;
+  --accent:#e8b931;--accent-dim:#c49a1a;
+  --border:#1e2a45;--border-hover:#2d3d5e;
+  --clr-freelance:#f59e0b;--clr-ict:#00e5ff;--clr-ukdev:#c2744e;
+  --clr-quickdev:#84cc16;--clr-public:#0d9488;--clr-everyday:#6366f1;
+}
+body{font-family:'Outfit',system-ui,-apple-system,sans-serif;background:var(--bg-deep);color:var(--text-secondary);min-height:100vh;line-height:1.6;overflow-x:hidden}
+a{color:var(--accent);text-decoration:none;transition:color .2s}
+a:hover{color:var(--text-primary)}
+.skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:100000;padding:10px 18px;background:var(--accent);color:var(--bg-deep);font-weight:600;font-size:.875rem;border-radius:0 0 8px 8px}
+.skip-link:focus{position:fixed;left:50%;top:0;transform:translateX(-50%);width:auto;height:auto;overflow:visible}
+.bg-grid{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:radial-gradient(ellipse 600px 400px at 20% 20%,rgba(232,185,49,0.04) 0%,transparent 70%),radial-gradient(ellipse 500px 500px at 80% 70%,rgba(99,102,241,0.03) 0%,transparent 70%),linear-gradient(rgba(30,42,69,0.3) 1px,transparent 1px),linear-gradient(90deg,rgba(30,42,69,0.3) 1px,transparent 1px);background-size:100% 100%,100% 100%,60px 60px,60px 60px}
+.container{max-width:900px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
+.site-header{padding:24px 0 0}
+.header-inner{display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Sora',system-ui,sans-serif;font-weight:800;font-size:1.1rem;color:var(--text-primary);letter-spacing:-.02em}
+.logo span{color:var(--accent)}
+.header-links{display:flex;gap:20px;align-items:center}
+.header-links a{color:var(--text-muted);font-size:.85rem;font-weight:500;transition:color .2s}
+.header-links a:hover{color:var(--text-primary)}
+.header-links a svg{width:18px;height:18px;vertical-align:middle;fill:currentColor}
+.hero{padding:80px 0 48px;text-align:center}
+.hero-badge{display:inline-block;padding:6px 16px;border-radius:100px;background:rgba(232,185,49,0.08);border:1px solid rgba(232,185,49,0.2);color:var(--accent);font-size:.8rem;font-weight:600;letter-spacing:.03em;margin-bottom:24px;animation:fadeUp .6s ease both}
+.hero h1{font-family:'Sora',system-ui,sans-serif;font-weight:800;font-size:clamp(2rem,5vw,3.2rem);color:var(--text-primary);letter-spacing:-.03em;line-height:1.15;margin-bottom:16px;animation:fadeUp .6s ease .1s both}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero-sub{font-size:clamp(1rem,2.5vw,1.15rem);color:var(--text-secondary);max-width:580px;margin:0 auto 36px;line-height:1.65;animation:fadeUp .6s ease .2s both}
+.hero-bio{font-size:.95rem;color:var(--text-muted);max-width:620px;margin:0 auto 40px;line-height:1.7;animation:fadeUp .6s ease .25s both}
+.stats{display:flex;justify-content:center;gap:32px;flex-wrap:wrap;padding:24px 0;margin-bottom:56px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);animation:fadeUp .6s ease .3s both}
+.stat{text-align:center}
+.stat-num{font-family:'Sora',system-ui,sans-serif;font-weight:700;font-size:1.5rem;color:var(--text-primary)}
+.stat-label{font-size:.78rem;color:var(--text-muted);margin-top:2px;letter-spacing:.02em}
+.section-label{font-family:'Sora',system-ui,sans-serif;font-weight:700;font-size:.75rem;color:var(--accent);letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px}
+.section-title{font-family:'Sora',system-ui,sans-serif;font-weight:700;font-size:1.6rem;color:var(--text-primary);letter-spacing:-.02em;margin-bottom:32px}
+.projects{padding:0 0 64px}
+.project-card{display:block;position:relative;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:28px 28px 24px;text-decoration:none;transition:background .25s ease,border-color .25s ease,transform .25s cubic-bezier(.4,0,.2,1),box-shadow .25s ease;overflow:hidden}
+.project-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:12px 12px 0 0;opacity:0;transition:opacity .3s ease}
+.project-card:hover{background:var(--bg-card-hover);border-color:var(--border-hover);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.25)}
+.project-card:hover::before{opacity:1}
+.project-card:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.card-freelance::before{background:var(--clr-freelance)}
+.card-ict::before{background:var(--clr-ict)}
+.card-ukdev::before{background:var(--clr-ukdev)}
+.card-quickdev::before{background:var(--clr-quickdev)}
+.card-public::before{background:var(--clr-public)}
+.card-everyday::before{background:var(--clr-everyday)}
+.card-tier{display:inline-block;padding:3px 10px;border-radius:4px;font-size:.7rem;font-weight:600;letter-spacing:.05em;margin-bottom:12px}
+.tier-primary{background:rgba(232,185,49,0.12);color:var(--accent)}
+.tier-tools{background:rgba(124,132,154,0.12);color:var(--text-muted)}
+.card-name{font-family:'Sora',system-ui,sans-serif;font-weight:700;font-size:1.15rem;color:var(--text-primary);margin-bottom:8px;letter-spacing:-.01em}
+.card-desc{font-size:.9rem;color:var(--text-secondary);line-height:1.6;margin-bottom:14px}
+.card-meta{display:flex;gap:16px;flex-wrap:wrap}
+.card-meta span{font-size:.78rem;color:var(--text-muted);white-space:nowrap}
+.card-meta span strong{color:var(--text-secondary);font-weight:600}
+.card-arrow{position:absolute;top:28px;right:24px;color:var(--text-muted);transition:color .2s,transform .2s;font-size:1.1rem}
+.project-card:hover .card-arrow{color:var(--text-primary);transform:translateX(3px)}
+.featured-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.tools-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.hire-cta{text-align:center;padding:56px 0;background:linear-gradient(180deg,transparent 0%,rgba(232,185,49,0.03) 50%,transparent 100%);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.hire-cta h2{font-family:'Sora',system-ui,sans-serif;font-weight:700;font-size:1.4rem;color:var(--text-primary);margin-bottom:12px}
+.hire-cta p{color:var(--text-secondary);margin-bottom:24px;font-size:.95rem}
+.btn{display:inline-block;padding:12px 32px;border-radius:8px;font-family:'Outfit',system-ui,sans-serif;font-weight:600;font-size:.95rem;transition:all .2s ease}
+.btn-primary{background:var(--accent);color:var(--bg-deep)}
+.btn-primary:hover{background:#f0c640;color:var(--bg-deep);transform:translateY(-1px);box-shadow:0 4px 20px rgba(232,185,49,0.3)}
+.btn-ghost{background:transparent;color:var(--text-secondary);border:1px solid var(--border);margin-left:12px}
+.btn-ghost:hover{border-color:var(--text-muted);color:var(--text-primary)}
+.site-footer{padding:40px 0;text-align:center}
+.footer-links{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-bottom:16px}
+.footer-links a{color:var(--text-muted);font-size:.85rem}
+.footer-links a:hover{color:var(--text-primary)}
+.footer-copy{color:var(--text-muted);font-size:.78rem}
+.footer-disclaimer{color:var(--text-muted);font-size:.75rem;max-width:600px;margin:12px auto 0;line-height:1.5}
+.cookie-banner{display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:var(--bg-surface);border-top:1px solid var(--border);padding:16px 24px}
+.cookie-banner.show{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap}
+.cookie-banner p{color:var(--text-secondary);font-size:.85rem;margin:0}
+.cookie-banner p a{text-decoration:underline}
+.cookie-btn{padding:8px 20px;border-radius:6px;border:none;cursor:pointer;font-family:'Outfit',system-ui,sans-serif;font-weight:600;font-size:.85rem}
+.cookie-accept{background:var(--accent);color:var(--bg-deep)}
+.cookie-decline{background:transparent;color:var(--text-muted);border:1px solid var(--border)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@media(max-width:680px){
+  .hero{padding:56px 0 32px}
+  .hero h1{font-size:1.8rem}
+  .stats{gap:20px}
+  .stat-num{font-size:1.2rem}
+  .featured-row,.tools-grid{grid-template-columns:1fr}
+  .header-links{gap:12px}
+  .hire-cta{padding:40px 24px}
+  .btn-ghost{margin-left:0;margin-top:8px;display:inline-block}
+}
 </style>
 </head>
 <body>
-<div class="wrap">
-<h1>Player Johnson</h1>
-<p>Developer tools, utilities, trading indicators & freelance development</p>
-<div class="grid">
-<a class="card featured" href="/freelance-dev/">Freelance .NET & Azure Developer<br><small>Senior developer for hire — cloud migration, DevOps, .NET apps</small></a>
-<a class="card featured" href="/ict-edge-indicators/">ICT Edge Indicators<br><small>Professional ICT methodology indicators for TradingView</small></a>
-<a class="card" href="/uk-devtools/">UK DevTools<br><small>Developer utilities built for UK professionals</small></a>
-<a class="card" href="/quickdev-tools/">QuickDev Tools<br><small>Fast developer utilities and converters</small></a>
-<a class="card" href="/public-sector-tools/">Public Sector Tools<br><small>Utilities for UK government and council teams</small></a>
-<a class="card" href="/everyday-tools/">Everyday Tools<br><small>Practical calculators and converters for daily use</small></a>
+<div class="bg-grid" aria-hidden="true"></div>
+<a href="#main-content" class="skip-link">Skip to content</a>
+<header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="/" class="logo" aria-label="Home">Anthony<span>.</span>dev</a>
+      <nav class="header-links" aria-label="Utility">
+        <a href="https://github.com/playerjohnson" target="_blank" rel="noopener" aria-label="GitHub profile"><svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 016.02 0c2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.82.58C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg></a>
+        <a href="mailto:johnsons496@googlemail.com" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
+      </nav>
+    </div>
+  </div>
+</header>
+<main id="main-content">
+  <section class="hero">
+    <div class="container">
+      <div class="hero-badge">Senior .NET &amp; Azure Developer</div>
+      <h1>I build tools that <em>solve real problems</em></h1>
+      <p class="hero-sub">Developer, freelancer, and builder of useful things. I create free tools, professional trading indicators, and provide freelance development services for UK organisations.</p>
+      <p class="hero-bio">9+ years leading engineering teams in UK government and public sector. I specialise in cloud migration, legacy modernisation, and building products that people actually use &mdash; from tax calculators to TradingView indicators.</p>
+    </div>
+  </section>
+  <div class="container">
+    <div class="stats">
+      <div class="stat"><div class="stat-num">6</div><div class="stat-label">Live Products</div></div>
+      <div class="stat"><div class="stat-num">40+</div><div class="stat-label">Free Tools</div></div>
+      <div class="stat"><div class="stat-num">126</div><div class="stat-label">Pages Built</div></div>
+      <div class="stat"><div class="stat-num">9+</div><div class="stat-label">Years Experience</div></div>
+    </div>
+  </div>
+  <section class="projects">
+    <div class="container">
+      <div class="section-label">Portfolio</div>
+      <div class="section-title">What I&rsquo;ve Built</div>
+      <div class="featured-row">
+        <a href="/freelance-dev/" class="project-card card-freelance reveal" onclick="trackClick('freelance-dev')">
+          <span class="card-arrow">&rarr;</span>
+          <span class="card-tier tier-primary">HIRE ME</span>
+          <div class="card-name">Freelance .NET &amp; Azure Development</div>
+          <div class="card-desc">Cloud migration, DevOps pipelines, API development, and legacy modernisation for UK government and enterprise clients.</div>
+          <div class="card-meta"><span><strong>6</strong> services</span><span><strong>9+</strong> years</span><span>Gov contracts</span></div>
+        </a>
+        <a href="/ict-edge-indicators/" class="project-card card-ict reveal" onclick="trackClick('ict-edge-indicators')">
+          <span class="card-arrow">&rarr;</span>
+          <span class="card-tier tier-primary">PREMIUM</span>
+          <div class="card-name">ICT Edge Indicators</div>
+          <div class="card-desc">Professional trading indicators for TradingView built on Inner Circle Trader methodology. Order blocks, fair value gaps, session levels, and more.</div>
+          <div class="card-meta"><span><strong>6</strong> indicators</span><span>From <strong>&pound;29</strong>/mo</span><span>TradingView</span></div>
+        </a>
+      </div>
+      <div class="tools-grid">
+        <a href="/uk-devtools/" class="project-card card-ukdev reveal" onclick="trackClick('uk-devtools')">
+          <span class="card-arrow">&rarr;</span>
+          <span class="card-tier tier-tools">FREE TOOLS</span>
+          <div class="card-name">UK Calculator Hub</div>
+          <div class="card-desc">Free tax, NI, salary, stamp duty, pension, and business calculators updated for 2025/26. Built for UK employers, freelancers, and individuals.</div>
+          <div class="card-meta"><span><strong>17</strong> calculators</span><span><strong>13</strong> blog posts</span></div>
+        </a>
+        <a href="/quickdev-tools/" class="project-card card-quickdev reveal" onclick="trackClick('quickdev-tools')">
+          <span class="card-arrow">&rarr;</span>
+          <span class="card-tier tier-tools">FREE TOOLS</span>
+          <div class="card-name">QuickDev Tools</div>
+          <div class="card-desc">JSON formatter, regex tester, Base64 encoder, CSS gradient generator, diff tool, cron builder, and XML formatter. 100% client-side &mdash; your data never leaves your browser.</div>
+          <div class="card-meta"><span><strong>8</strong> dev tools</span><span><strong>8</strong> blog posts</span></div>
+        </a>
+        <a href="/public-sector-tools/" class="project-card card-public reveal" onclick="trackClick('public-sector-tools')">
+          <span class="card-arrow">&rarr;</span>
+          <span class="card-tier tier-tools">FREE TOOLS</span>
+          <div class="card-name">Public Sector Tools</div>
+          <div class="card-desc">Council tax estimator, FOI request generator, planning permission checker, business rates calculator, and pay grade lookup for UK residents and professionals.</div>
+          <div class="card-meta"><span><strong>6</strong> tools</span><span>FOI generator</span></div>
+        </a>
+        <a href="/everyday-tools/" class="project-card card-everyday reveal" onclick="trackClick('everyday-tools')">
+          <span class="card-arrow">&rarr;</span>
+          <span class="card-tier tier-tools">FREE TOOLS</span>
+          <div class="card-name">Everyday Tools</div>
+          <div class="card-desc">PDF merger, image compressor, QR code generator, password generator, invoice maker, and currency converter. All processing happens in your browser &mdash; no uploads.</div>
+          <div class="card-meta"><span><strong>9</strong> utilities</span><span>No uploads</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+  <section class="hire-cta">
+    <div class="container">
+      <h2>Available for Freelance Work</h2>
+      <p>Cloud migration, .NET development, DevOps, and legacy modernisation. Based in Peterborough, working across the UK.</p>
+      <a href="/freelance-dev/contact.html" class="btn btn-primary">Get in Touch</a>
+      <a href="/freelance-dev/" class="btn btn-ghost">View Services</a>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <nav class="footer-links" aria-label="Legal and social">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+      <a href="mailto:johnsons496@googlemail.com">Contact</a>
+      <a href="https://github.com/playerjohnson" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+    <p class="footer-copy">&copy; 2026 Anthony D Johnson. All rights reserved.</p>
+    <p class="footer-disclaimer">All tools are for informational purposes only and do not constitute professional, financial, or legal advice. Trading involves significant risk of loss. Tax calculations are estimates &mdash; consult a qualified professional.</p>
+  </div>
+</footer>
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Cookie consent">
+  <p>This site uses cookies for analytics. <a href="privacy.html">Learn more</a>.</p>
+  <button class="cookie-btn cookie-accept" onclick="acceptCookies()">Accept</button>
+  <button class="cookie-btn cookie-decline" onclick="declineCookies()">Decline</button>
 </div>
-</div>
+<script>
+(function(){var c=localStorage.getItem('pj_cookie_consent');if(!c)document.getElementById('cookieBanner').classList.add('show')})();
+function acceptCookies(){localStorage.setItem('pj_cookie_consent','accepted');document.getElementById('cookieBanner').classList.remove('show');var s=document.createElement('script');s.src='https://www.googletagmanager.com/gtag/js?id=G-PMSE15GDWY';s.async=true;document.head.appendChild(s);window.dataLayer=window.dataLayer||[];function g(){dataLayer.push(arguments)}g('js',new Date());g('config','G-PMSE15GDWY',{send_page_view:true});window.gtag=g}
+function declineCookies(){localStorage.setItem('pj_cookie_consent','declined');document.getElementById('cookieBanner').classList.remove('show')}
+function trackClick(d){if(window.gtag)gtag('event','hub_click',{destination:d})}
+(function(){var els=document.querySelectorAll('.reveal');if(!els.length)return;var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});els.forEach(function(el,i){el.style.transitionDelay=(i*0.08)+'s';obs.observe(el)})})();
+</script>
 </body>
 </html>
