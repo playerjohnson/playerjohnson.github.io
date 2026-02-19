@@ -38,6 +38,7 @@
     "https://anthonyjohnson.dev/quickdev-tools/",
     "https://anthonyjohnson.dev/public-sector-tools/",
     "https://anthonyjohnson.dev/everyday-tools/",
+    "https://anthonyjohnson.dev/little-stars/",
     "https://github.com/playerjohnson"
   ],
   "knowsAbout": [".NET", "Azure", "Cloud Migration", "DevOps", "TradingView Pine Script"],
@@ -49,14 +50,15 @@
   "@context": "https://schema.org",
   "@type": "ItemList",
   "name": "Developer Portfolio",
-  "numberOfItems": 6,
+  "numberOfItems": 7,
   "itemListElement": [
     {"@type": "ListItem", "position": 1, "name": "Freelance .NET & Azure Development", "url": "https://anthonyjohnson.dev/freelance-dev/"},
     {"@type": "ListItem", "position": 2, "name": "ICT Edge Trading Indicators", "url": "https://anthonyjohnson.dev/ict-edge-indicators/"},
     {"@type": "ListItem", "position": 3, "name": "UK Calculator Hub", "url": "https://anthonyjohnson.dev/uk-devtools/"},
     {"@type": "ListItem", "position": 4, "name": "QuickDev Tools", "url": "https://anthonyjohnson.dev/quickdev-tools/"},
     {"@type": "ListItem", "position": 5, "name": "Public Sector Tools", "url": "https://anthonyjohnson.dev/public-sector-tools/"},
-    {"@type": "ListItem", "position": 6, "name": "Everyday Tools", "url": "https://anthonyjohnson.dev/everyday-tools/"}
+    {"@type": "ListItem", "position": 6, "name": "Everyday Tools", "url": "https://anthonyjohnson.dev/everyday-tools/"},
+    {"@type": "ListItem", "position": 7, "name": "Little Stars Babysitting", "url": "https://anthonyjohnson.dev/little-stars/"}
   ]
 }
 </script>
@@ -78,6 +80,7 @@
   --border:#1e2a45;--border-hover:#2d3d5e;
   --clr-freelance:#f59e0b;--clr-ict:#00e5ff;--clr-ukdev:#c2744e;
   --clr-quickdev:#84cc16;--clr-public:#0d9488;--clr-everyday:#6366f1;
+  --clr-littlestars:#f472b6;
 }
 body{font-family:'Outfit',system-ui,-apple-system,sans-serif;background:var(--bg-deep);color:var(--text-secondary);min-height:100vh;line-height:1.6;overflow-x:hidden}
 a{color:var(--accent);text-decoration:none;transition:color .2s}
@@ -118,6 +121,7 @@ a:hover{color:var(--text-primary)}
 .card-quickdev::before{background:var(--clr-quickdev)}
 .card-public::before{background:var(--clr-public)}
 .card-everyday::before{background:var(--clr-everyday)}
+.card-littlestars::before{background:var(--clr-littlestars)}
 .card-tier{display:inline-block;padding:3px 10px;border-radius:4px;font-size:.7rem;font-weight:600;letter-spacing:.05em;margin-bottom:12px}
 .tier-primary{background:rgba(232,185,49,0.12);color:var(--accent)}
 .tier-tools{background:rgba(124,132,154,0.12);color:var(--text-muted)}
@@ -191,9 +195,9 @@ a:hover{color:var(--text-primary)}
   </section>
   <div class="container">
     <div class="stats">
-      <div class="stat"><div class="stat-num">6</div><div class="stat-label">Live Products</div></div>
+      <div class="stat"><div class="stat-num">7</div><div class="stat-label">Live Products</div></div>
       <div class="stat"><div class="stat-num">40+</div><div class="stat-label">Free Tools</div></div>
-      <div class="stat"><div class="stat-num">126</div><div class="stat-label">Pages Built</div></div>
+      <div class="stat"><div class="stat-num">130+</div><div class="stat-label">Pages Built</div></div>
       <div class="stat"><div class="stat-num">9+</div><div class="stat-label">Years Experience</div></div>
     </div>
   </div>
@@ -245,6 +249,13 @@ a:hover{color:var(--text-primary)}
           <div class="card-name">Everyday Tools</div>
           <div class="card-desc">PDF merger, image compressor, QR code generator, password generator, invoice maker, and currency converter. All processing happens in your browser &mdash; no uploads.</div>
           <div class="card-meta"><span><strong>9</strong> utilities</span><span>No uploads</span></div>
+        </a>
+        <a href="/little-stars/" class="project-card card-littlestars reveal" onclick="trackClick('little-stars')">
+          <span class="card-arrow">&rarr;</span>
+          <span class="card-tier tier-tools">LOCAL SERVICE</span>
+          <div class="card-name">Little Stars Babysitting</div>
+          <div class="card-desc">Trusted in-home babysitting in Peterborough. DBS checked, first aid trained. Browse available dates, choose your rate, and book flexible childcare online.</div>
+          <div class="card-meta"><span>Peterborough</span><span>Online booking</span></div>
         </a>
       </div>
     </div>
