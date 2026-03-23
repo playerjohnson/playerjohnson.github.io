@@ -159,8 +159,9 @@ body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;o
 .products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:20px}
 .product-card{background:var(--bg-elevated);border:1px solid var(--border);border-radius:var(--radius-lg);transition:all .3s var(--ease-smooth);position:relative;overflow:hidden;cursor:pointer;display:block;color:inherit}
 .product-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gilt),transparent);opacity:0;transition:opacity .3s;z-index:2}
-.product-thumb{width:100%;height:180px;object-fit:cover;object-position:top;display:block;border-bottom:1px solid var(--border);transition:transform .4s var(--ease-smooth);filter:brightness(0.85)}
+.product-thumb{width:100%;height:180px;object-fit:cover;object-position:center top;display:block;border-bottom:1px solid var(--border);transition:transform .4s var(--ease-smooth);filter:brightness(0.85)}
 .product-card:hover .product-thumb{transform:scale(1.03);filter:brightness(1)}
+.product-thumb-brand{width:100%;height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;border-bottom:1px solid var(--border)}
 .product-thumb-placeholder{width:100%;height:180px;display:flex;align-items:center;justify-content:center;font-size:3rem;background:var(--bg-tertiary);border-bottom:1px solid var(--border);opacity:0.4}
 .product-body{padding:24px 28px 28px}
 .product-card:hover{border-color:var(--border-strong);transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,0.3),0 0 0 1px var(--border-strong)}
@@ -183,7 +184,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;o
 .tools-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
 .tool-card{background:var(--bg-elevated);border:1px solid var(--border);border-radius:var(--radius-lg);transition:all .3s var(--ease-smooth);position:relative;overflow:hidden;display:block;color:inherit}
 .tool-card:hover{border-color:var(--border-strong);transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,0.3),0 0 0 1px var(--border-strong)}
-.tool-thumb{width:100%;height:180px;object-fit:cover;object-position:top;display:block;border-bottom:1px solid var(--border);transition:transform .4s var(--ease-smooth);filter:brightness(0.85)}
+.tool-thumb{width:100%;height:180px;object-fit:cover;object-position:center top;display:block;border-bottom:1px solid var(--border);transition:transform .4s var(--ease-smooth);filter:brightness(0.85)}
 .tool-card:hover .tool-thumb{transform:scale(1.03);filter:brightness(1)}
 .tool-body{padding:24px 28px 28px}
 .tool-arrow{position:absolute;top:16px;right:16px;color:rgba(255,255,255,0.6);transition:all .25s var(--ease-out);font-size:1rem;z-index:2;background:rgba(15,19,32,0.6);width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:50%;backdrop-filter:blur(4px)}
@@ -384,7 +385,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;o
 
         <a href="https://www.epcfix.co.uk" target="_blank" rel="noopener" class="product-card reveal">
           <span class="product-arrow">&#8599;</span>
-          <img src="img/epcfix.jpg" alt="EPCFix website preview" class="product-thumb" loading="lazy">
+          <div class="product-thumb-brand" style="background:linear-gradient(135deg,#0A1D20,#1a3a2e)"><span style="color:#D65A31;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.4rem">EPCFix</span><span style="font-size:0.75rem;color:#94A3B8;margin-top:6px">epcfix.co.uk</span></div>
           <div class="product-body">
             <div class="product-card-header">
               <span class="product-status status-live">LIVE</span>
@@ -401,7 +402,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;o
 
         <a href="https://hygienefix.co.uk" target="_blank" rel="noopener" class="product-card reveal">
           <span class="product-arrow">&#8599;</span>
-          <img src="img/hygienefix.jpg" alt="HygieneFix website preview" class="product-thumb" loading="lazy">
+          <div class="product-thumb-brand" style="background:linear-gradient(135deg,#0c1222,#1a2440)"><span style="color:#22c55e;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.4rem">HygieneFix</span><span style="font-size:0.75rem;color:#94A3B8;margin-top:6px">hygienefix.co.uk</span></div>
           <div class="product-body">
             <div class="product-card-header">
               <span class="product-status status-live">LIVE</span>
@@ -418,7 +419,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;o
 
         <a href="https://asbestos-check.co.uk" target="_blank" rel="noopener" class="product-card reveal">
           <span class="product-arrow">&#8599;</span>
-          <img src="img/asbestoscheck.jpg" alt="AsbestosCheck website preview" class="product-thumb" loading="lazy">
+          <div class="product-thumb-brand" style="background:linear-gradient(135deg,#1a1a2e,#2d2d44)"><span style="color:#f59e0b;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.4rem">AsbestosCheck</span><span style="font-size:0.75rem;color:#94A3B8;margin-top:6px">asbestos-check.co.uk</span></div>
           <div class="product-body">
             <div class="product-card-header">
               <span class="product-status status-live">LIVE</span>
@@ -435,7 +436,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;o
 
         <a href="https://legionelladirectory.co.uk" target="_blank" rel="noopener" class="product-card reveal">
           <span class="product-arrow">&#8599;</span>
-          <img src="img/legionella.jpg" alt="Legionella Directory website preview" class="product-thumb" loading="lazy">
+          <div class="product-thumb-brand" style="background:linear-gradient(135deg,#0c1222,#182240)"><span style="color:#38bdf8;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.4rem">Legionella Directory</span><span style="font-size:0.75rem;color:#94A3B8;margin-top:6px">legionelladirectory.co.uk</span></div>
           <div class="product-body">
             <div class="product-card-header">
               <span class="product-status status-mvp">MVP</span>
@@ -503,7 +504,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;o
 
         <a href="/ict-edge-indicators/" class="tool-card tool-featured reveal">
           <span class="tool-arrow">&#8599;</span>
-          <img src="img/ict-edge.jpg" alt="ICT Edge Indicators site preview" class="tool-thumb" loading="lazy">
+          <div class="product-thumb-brand" style="background:linear-gradient(135deg,#0a0f1a,#111827)"><span style="color:#00e5ff;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.4rem">ICT Edge</span><span style="font-size:0.75rem;color:#94A3B8;margin-top:6px">TradingView Indicators</span></div>
           <div class="tool-body">
             <span class="tool-tier tier-premium">PREMIUM</span>
             <div class="tool-name">ICT Edge Indicators</div>
