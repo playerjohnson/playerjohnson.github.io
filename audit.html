@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Website Audit — Anthony D Johnson</title>
+<meta name="description" content="Get a free comprehensive website audit with real performance scores, SEO analysis, accessibility checks, and a costed sprint plan. By Anthony D Johnson, Peterborough.">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        brand: { 900: '#0a0a0f', 800: '#111118', 700: '#1a1a24', 600: '#24242f', 500: '#2e2e3a' },
+        accent: { DEFAULT: '#f97316', light: '#fb923c', dark: '#ea580c' },
+        term: { green: '#4ade80', red: '#f87171', yellow: '#facc15', blue: '#60a5fa', cyan: '#22d3ee', muted: '#6b7280' }
+      }
+    }
+  }
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { font-family: 'Plus Jakarta Sans', sans-serif; }
+  code, .mono { font-family: 'JetBrains Mono', monospace; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .spin { animation: spin 1s linear infinite; }
+  @keyframes pulse-glow { 0%, 100% { box-shadow: 0 0 0 0 rgba(249,115,22,0.3); } 50% { box-shadow: 0 0 20px 4px rgba(249,115,22,0.15); } }
+  .glow { animation: pulse-glow 2s ease-in-out infinite; }
+  @keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+  .fade-up { animation: fadeUp 0.5s ease-out forwards; }
+  .delay-1 { animation-delay: 0.1s; opacity: 0; }
+  .delay-2 { animation-delay: 0.2s; opacity: 0; }
+  .delay-3 { animation-delay: 0.3s; opacity: 0; }
+  @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+  .cursor-blink::after { content: '█'; animation: blink 1s step-end infinite; color: #f97316; }
+  @media print {
+    .no-print { display: none !important; }
+    .print-show { display: block !important; }
+    body { background: #fff !important; color: #111 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    * { box-shadow: none !important; }
+    .bg-brand-900, .bg-brand-800, .bg-brand-700, .bg-brand-600 { background: #fff !important; }
+    .text-white, .text-slate-300, .text-slate-400 { color: #333 !important; }
+    .border-brand-600, .border-brand-700 { border-color: #ddd !important; }
+  }
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: #111118; }
+  ::-webkit-scrollbar-thumb { background: #2e2e3a; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #f97316; }
+</style>
+</head>
+<body class="bg-brand-900 text-white min-h-screen">
+
+<!-- NAV -->
+<nav class="border-b border-brand-600 bg-brand-900/95 backdrop-blur-sm sticky top-0 z-50 no-print">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="https://anthonyjohnson.dev" class="text-sm font-semibold text-slate-300 hover:text-white transition">
+      <span class="text-accent">anthony</span>.dev
+    </a>
+    <div class="flex items-center gap-6 text-sm">
+      <a href="https://anthonyjohnson.dev/#pricing" class="text-slate-400 hover:text-white transition">Pricing</a>
+      <a href="https://anthonyjohnson.dev/#products" class="text-slate-400 hover:text-white transition">Products</a>
+      <a href="#" class="text-accent font-semibold">Audit Tool</a>
+      <a href="https://anthonyjohnson.dev/#stack" class="text-slate-400 hover:text-white transition">Stack</a>
+      <a href="/cdn-cgi/l/email-protection#1f777a7373705f7e716b77707166757077716c7071317b7a69" class="hidden md:inline-flex bg-accent hover:bg-accent-dark text-white text-sm font-medium px-4 py-2 rounded-lg transition">Get in Touch</a>
+    </div>
+  </div>
+</nav>
+
+<div id="app"></div>
+
+<!-- FOOTER -->
+<footer class="border-t border-brand-600 mt-16 no-print">
+  <div class="max-w-6xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-4 text-sm text-slate-500">
+      <a href="https://anthonyjohnson.dev/privacy.html" class="hover:text-white transition">Privacy</a>
+      <a href="https://anthonyjohnson.dev/terms.html" class="hover:text-white transition">Terms</a>
+      <a href="/cdn-cgi/l/email-protection#a1c9c4cdcdcee1c0cfd5c9cecfd8cbcec9cfd2cecf8fc5c4d7" class="hover:text-white transition">Contact</a>
+      <a href="https://github.com/playerjohnson" class="hover:text-white transition">GitHub</a>
+    </div>
+    <p class="text-xs text-slate-600">&copy; 2026 Anthony D Johnson</p>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+const PSI_KEY = "AIzaSyCbcL0imb59_F0-0ZORcs4QFDIPgFBt14k";
+const RATE = 75;
+
+const AUDIT_TASKS = {
+  "render-blocking-resources":{task:"Remove render-blocking resources",hours:3,priority:"high",sprint:1,cat:"Performance"},
+  "uses-optimized-images":{task:"Optimise images for web",hours:2,priority:"high",sprint:1,cat:"Performance"},
+  "offscreen-images":{task:"Lazy-load offscreen images",hours:2,priority:"medium",sprint:2,cat:"Performance"},
+  "unminified-css":{task:"Minify CSS files",hours:1,priority:"medium",sprint:2,cat:"Performance"},
+  "unminified-javascript":{task:"Minify JavaScript files",hours:1,priority:"medium",sprint:2,cat:"Performance"},
+  "unused-css-rules":{task:"Remove unused CSS",hours:2,priority:"medium",sprint:2,cat:"Performance"},
+  "unused-javascript":{task:"Remove unused JavaScript",hours:2,priority:"medium",sprint:2,cat:"Performance"},
+  "uses-long-cache-ttl":{task:"Configure browser caching",hours:1,priority:"low",sprint:3,cat:"Performance"},
+  "uses-text-compression":{task:"Enable text compression (gzip)",hours:1,priority:"high",sprint:1,cat:"Performance"},
+  "server-response-time":{task:"Improve server response time",hours:3,priority:"critical",sprint:1,cat:"Performance"},
+  "modern-image-formats":{task:"Convert images to WebP format",hours:2,priority:"medium",sprint:2,cat:"Performance"},
+  "total-byte-weight":{task:"Reduce total page weight",hours:3,priority:"high",sprint:1,cat:"Performance"},
+  "dom-size":{task:"Reduce DOM complexity",hours:3,priority:"medium",sprint:2,cat:"Performance"},
+  "legacy-javascript":{task:"Update legacy JavaScript",hours:2,priority:"medium",sprint:2,cat:"Performance"},
+  "duplicated-javascript":{task:"Remove duplicate scripts",hours:1,priority:"medium",sprint:2,cat:"Performance"},
+  "efficient-animated-content":{task:"Optimise animated content",hours:1,priority:"low",sprint:3,cat:"Performance"},
+  "document-title":{task:"Add/fix page title tag",hours:0.5,priority:"critical",sprint:1,cat:"SEO"},
+  "meta-description":{task:"Add meta descriptions",hours:1,priority:"critical",sprint:1,cat:"SEO"},
+  "link-text":{task:"Improve descriptive link text",hours:1,priority:"medium",sprint:2,cat:"SEO"},
+  "hreflang":{task:"Add hreflang language tags",hours:0.5,priority:"low",sprint:3,cat:"SEO"},
+  "canonical":{task:"Set canonical URLs",hours:0.5,priority:"medium",sprint:2,cat:"SEO"},
+  "robots-txt":{task:"Configure robots.txt",hours:0.5,priority:"high",sprint:1,cat:"SEO"},
+  "is-crawlable":{task:"Fix crawlability issues",hours:1,priority:"critical",sprint:1,cat:"SEO"},
+  "http-status-code":{task:"Fix HTTP error pages",hours:1,priority:"critical",sprint:1,cat:"SEO"},
+  "image-alt":{task:"Add alt text to all images",hours:1.5,priority:"high",sprint:1,cat:"SEO"},
+  "structured-data-item":{task:"Add structured data (Schema.org)",hours:3,priority:"medium",sprint:2,cat:"SEO"},
+  "viewport":{task:"Add mobile viewport meta tag",hours:0.5,priority:"critical",sprint:1,cat:"Mobile"},
+  "font-size":{task:"Fix font legibility on mobile",hours:1,priority:"high",sprint:1,cat:"Mobile"},
+  "tap-targets":{task:"Fix tap target sizing",hours:2,priority:"high",sprint:1,cat:"Mobile"},
+  "plugins":{task:"Remove browser plugin deps",hours:1,priority:"high",sprint:1,cat:"Mobile"},
+  "color-contrast":{task:"Fix colour contrast (WCAG AA)",hours:2,priority:"high",sprint:1,cat:"Accessibility"},
+  "heading-order":{task:"Fix heading hierarchy",hours:1,priority:"medium",sprint:2,cat:"Accessibility"},
+  "html-has-lang":{task:"Add lang attribute",hours:0.5,priority:"high",sprint:1,cat:"Accessibility"},
+  "html-lang-valid":{task:"Fix invalid lang attribute",hours:0.5,priority:"high",sprint:1,cat:"Accessibility"},
+  "label":{task:"Add labels to form fields",hours:1,priority:"high",sprint:1,cat:"Accessibility"},
+  "link-name":{task:"Add accessible link names",hours:1,priority:"medium",sprint:2,cat:"Accessibility"},
+  "button-name":{task:"Add accessible button names",hours:1,priority:"medium",sprint:2,cat:"Accessibility"},
+  "aria-allowed-attr":{task:"Fix ARIA attribute issues",hours:1.5,priority:"medium",sprint:2,cat:"Accessibility"},
+  "aria-hidden-body":{task:"Fix ARIA hidden on body",hours:0.5,priority:"critical",sprint:1,cat:"Accessibility"},
+  "aria-required-attr":{task:"Add required ARIA attributes",hours:1,priority:"medium",sprint:2,cat:"Accessibility"},
+  "tabindex":{task:"Fix keyboard tab order",hours:1,priority:"medium",sprint:2,cat:"Accessibility"},
+  "bypass":{task:"Add skip navigation link",hours:1,priority:"medium",sprint:2,cat:"Accessibility"},
+  "list":{task:"Fix list markup structure",hours:0.5,priority:"low",sprint:3,cat:"Accessibility"},
+  "is-on-https":{task:"Install SSL certificate",hours:1,priority:"critical",sprint:1,cat:"Security"},
+  "js-libraries":{task:"Update vulnerable JS libraries",hours:2,priority:"critical",sprint:1,cat:"Security"},
+  "deprecations":{task:"Fix deprecated API usage",hours:2,priority:"medium",sprint:2,cat:"Security"},
+  "errors-in-console":{task:"Fix JavaScript console errors",hours:2,priority:"high",sprint:1,cat:"Security"},
+  "geolocation-on-start":{task:"Fix premature permission requests",hours:1,priority:"medium",sprint:2,cat:"Security"},
+  "no-document-write":{task:"Remove document.write()",hours:1,priority:"low",sprint:3,cat:"Security"},
+  "inspector-issues":{task:"Fix browser inspector issues",hours:1,priority:"medium",sprint:2,cat:"Security"},
+  "csp-xss":{task:"Add Content Security Policy",hours:2,priority:"high",sprint:1,cat:"Security"},
+};
+
+const getClr=s=>s>=90?"#4ade80":s>=80?"#60a5fa":s>=65?"#facc15":s>=45?"#fb923c":"#f87171";
+const getGrade=s=>s>=90?"A":s>=80?"B":s>=65?"C":s>=45?"D":"F";
+const priBg=p=>({critical:"bg-red-500/20 text-red-400 border border-red-500/30",high:"bg-orange-500/20 text-orange-400 border border-orange-500/30",medium:"bg-yellow-500/20 text-yellow-400 border border-yellow-500/30",low:"bg-slate-500/20 text-slate-400 border border-slate-500/30"})[p]||"bg-slate-500/20 text-slate-400";
+function fmtUrl(u){let s=u.trim();if(!/^https?:\/\//i.test(s))s="https://"+s;return s;}
+
+function ring(score,size=64,stroke=5){
+  const r=(size-stroke)/2,circ=2*Math.PI*r,off=circ*(1-score/100),clr=getClr(score);
+  return `<div style="position:relative;display:inline-flex;align-items:center;justify-content:center;width:${size}px;height:${size}px">
+    <svg width="${size}" height="${size}" style="transform:rotate(-90deg)">
+      <circle cx="${size/2}" cy="${size/2}" r="${r}" fill="none" stroke="#2e2e3a" stroke-width="${stroke}"/>
+      <circle cx="${size/2}" cy="${size/2}" r="${r}" fill="none" stroke="${clr}" stroke-width="${stroke}" stroke-dasharray="${circ}" stroke-dashoffset="${off}" stroke-linecap="round" style="transition:stroke-dashoffset 1s ease-out"/>
+    </svg>
+    <span class="absolute mono font-bold text-base" style="color:${clr}">${score}</span>
+  </div>`;
+}
+
+function extractIssues(lhr){
+  const out=[];
+  for(const[id,a]of Object.entries(lhr.audits||{})){
+    if(!AUDIT_TASKS[id])continue;
+    if(a.score!==null&&a.score!==undefined&&a.score<0.9)
+      out.push({id,title:a.title,score:a.score,...AUDIT_TASKS[id]});
+  }
+  return out;
+}
+
+function buildSprint(issues){
+  const seen=new Set(),tasks=[];
+  for(const i of issues){if(seen.has(i.task))continue;seen.add(i.task);tasks.push({...i,cost:Math.max(49,Math.round(i.hours*RATE))});}
+  tasks.sort((a,b)=>{const po={critical:0,high:1,medium:2,low:3};return(a.sprint-b.sprint)||(po[a.priority]-po[b.priority]);});
+  const totalH=tasks.reduce((s,t)=>s+t.hours,0),totalC=tasks.reduce((s,t)=>s+t.cost,0);
+  let pkg;
+  if(totalC<=499)pkg={name:"Quick Fix",price:"\u00a3399\u2013499",time:"1 week"};
+  else if(totalC<=1299)pkg={name:"Professional Rebuild",price:"\u00a3899\u20131,299",time:"2\u20133 weeks"};
+  else if(totalC<=2499)pkg={name:"Premium Overhaul",price:"\u00a31,799\u20132,499",time:"4\u20136 weeks"};
+  else pkg={name:"Full Rebuild",price:"Custom quote",time:"6\u20138 weeks"};
+  return{tasks,totalH,totalC,pkg};
+}
+
+// ─── VIEWS ───
+
+function renderInput(error=""){
+  document.getElementById("app").innerHTML=`
+  <div class="max-w-6xl mx-auto px-6">
+    <!-- HERO -->
+    <div class="py-20 md:py-28 text-center max-w-3xl mx-auto fade-up">
+      <div class="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-4 py-1.5 text-xs text-accent font-medium mb-6">
+        <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
+        FREE TOOL
+      </div>
+      <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
+        Free <span class="text-accent">Website Audit</span>
+      </h1>
+      <p class="text-slate-400 text-lg max-w-xl mx-auto mb-10">
+        Enter any URL and get a comprehensive audit with real performance data, SEO analysis, accessibility checks, and a costed plan to fix every issue.
+      </p>
+
+      <!-- TERMINAL INPUT -->
+      <div class="bg-brand-800 border border-brand-600 rounded-xl overflow-hidden max-w-2xl mx-auto text-left">
+        <div class="flex items-center gap-2 px-4 py-2.5 bg-brand-700 border-b border-brand-600">
+          <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+          <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+          <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+          <span class="ml-2 text-xs text-slate-500 mono">audit-tool</span>
+        </div>
+        <div class="p-5">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="text-accent mono text-sm">$</span>
+            <span class="text-slate-400 mono text-sm">audit --url</span>
+          </div>
+          <div class="flex gap-2">
+            <input id="urlInput" type="text" placeholder="www.example-business.co.uk"
+              class="flex-1 bg-brand-900 border border-brand-600 rounded-lg px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent text-sm mono" value="">
+            <button onclick="startAudit()" class="bg-accent hover:bg-accent-dark text-white font-semibold px-6 py-3 rounded-lg transition flex items-center gap-2 text-sm glow whitespace-nowrap">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+              Run Audit
+            </button>
+          </div>
+          ${error?`<div class="mt-3 bg-red-500/10 border border-red-500/20 rounded-lg px-3 py-2"><p class="text-sm text-red-400 mono">\u2717 ${error}</p></div>`:""}
+        </div>
+      </div>
+    </div>
+
+    <!-- WHAT WE CHECK -->
+    <div class="pb-20">
+      <p class="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em] mb-8 text-center">What the audit covers</p>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
+        ${[
+          ["\u26a1","Performance","Page speed, images, caching, code bloat","delay-1"],
+          ["\ud83d\udd0d","SEO","Titles, meta tags, crawlability, schema","delay-2"],
+          ["\u267f","Accessibility","Contrast, ARIA, keyboard nav, WCAG","delay-3"],
+          ["\ud83d\udd12","Security","HTTPS, vulnerable libraries, CSP headers","delay-1"],
+          ["\ud83d\udcf1","Mobile","Viewport, tap targets, font sizing","delay-2"],
+          ["\ud83d\udcca","Sprint Plan","Prioritised fixes with hours, costs & timeline","delay-3"],
+        ].map(([icon,lbl,desc,delay])=>`
+          <div class="bg-brand-800 border border-brand-600 rounded-xl p-5 hover:border-accent/40 transition fade-up ${delay}">
+            <div class="text-2xl mb-3">${icon}</div>
+            <p class="text-sm font-bold text-white mb-1">${lbl}</p>
+            <p class="text-xs text-slate-500 leading-relaxed">${desc}</p>
+          </div>
+        `).join("")}
+      </div>
+      <p class="mt-8 text-center text-xs text-slate-600">Powered by Google PageSpeed Insights &bull; Real-time Lighthouse analysis</p>
+    </div>
+  </div>`;
+  const inp=document.getElementById("urlInput");
+  inp.addEventListener("keydown",e=>{if(e.key==="Enter")startAudit();});
+  inp.focus();
+}
+
+function renderLoading(url,stepNum){
+  const steps=["Checking SSL security\u2026","Running mobile audit\u2026","Running desktop audit\u2026","Analysing results\u2026","Generating sprint plan\u2026"];
+  document.getElementById("app").innerHTML=`
+  <div class="flex items-center justify-center py-32 px-6">
+    <div class="bg-brand-800 border border-brand-600 rounded-2xl p-10 max-w-md w-full text-center">
+      <svg class="w-12 h-12 text-accent spin mx-auto mb-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg>
+      <h2 class="text-xl font-bold mb-2">Auditing Website</h2>
+      <p class="text-sm text-slate-500 mb-8 break-all mono">${url}</p>
+      <div class="space-y-3 text-left">
+        ${steps.map((s,i)=>{
+          const done=i+1<stepNum,active=i+1===stepNum;
+          return`<div class="flex items-center gap-3 text-sm transition-all ${done?"text-term-green":active?"text-accent font-semibold":"text-slate-600"}">
+            ${done?'<svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>'
+            :active?'<svg class="w-4 h-4 flex-shrink-0 spin" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg>'
+            :'<div class="w-4 h-4 rounded-full border-2 border-brand-500 flex-shrink-0"></div>'}
+            <span class="mono text-xs">${s}</span>
+          </div>`;
+        }).join("")}
+      </div>
+    </div>
+  </div>`;
+}
+
+function renderResults(data){
+  const{siteName,fetchTime,isHttps,scores,mobileOverall,desktopOverall,issues,sprint}=data;
+  const date=new Date(fetchTime).toLocaleDateString("en-GB",{day:"numeric",month:"long",year:"numeric"});
+  const crits=issues.filter(i=>i.priority==="critical").length;
+  const highs=issues.filter(i=>i.priority==="high").length;
+  const gc=getClr(mobileOverall);
+  const cats=[
+    {label:"Performance",m:scores.mobile.performance,d:scores.desktop.performance},
+    {label:"SEO",m:scores.mobile.seo,d:scores.desktop.seo},
+    {label:"Accessibility",m:scores.mobile.accessibility,d:scores.desktop.accessibility},
+    {label:"Best Practices",m:scores.mobile.bestPractices,d:scores.desktop.bestPractices},
+  ];
+
+  document.getElementById("app").innerHTML=`
+  <div class="max-w-5xl mx-auto px-6 py-10 space-y-6">
+
+    <!-- REPORT HEADER -->
+    <div class="flex items-center justify-between flex-wrap gap-4 fade-up">
+      <div>
+        <p class="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em] mb-1">Website Audit Report</p>
+        <p class="text-xs text-slate-600">${date}</p>
+      </div>
+      <div class="flex gap-2 no-print">
+        <button onclick="window.print()" class="flex items-center gap-2 bg-brand-700 hover:bg-brand-600 border border-brand-600 text-sm font-medium px-4 py-2 rounded-lg transition text-slate-300">\ud83d\udda8\ufe0f PDF</button>
+        <button onclick="renderInput()" class="flex items-center gap-2 bg-accent hover:bg-accent-dark text-white text-sm font-medium px-4 py-2 rounded-lg transition">\u21bb New Audit</button>
+      </div>
+    </div>
+
+    <!-- URL -->
+    <div class="bg-brand-800 border border-brand-600 rounded-xl p-4 flex items-center gap-4 fade-up">
+      <span class="text-slate-500 text-lg">\ud83c\udf10</span>
+      <div class="flex-1 min-w-0">
+        <p class="text-sm font-semibold truncate mono">${siteName}</p>
+        <div class="flex items-center gap-3 mt-1.5 flex-wrap">
+          ${isHttps
+            ?'<span class="flex items-center gap-1 text-xs text-term-green mono">\ud83d\udd12 HTTPS</span>'
+            :'<span class="flex items-center gap-1 text-xs text-term-red mono">\u26a0 NO SSL</span>'}
+          ${crits>0?`<span class="text-[10px] font-bold px-2 py-0.5 rounded bg-red-500/20 text-red-400 border border-red-500/30">${crits} CRITICAL</span>`:""}
+          ${highs>0?`<span class="text-[10px] font-bold px-2 py-0.5 rounded bg-orange-500/20 text-orange-400 border border-orange-500/30">${highs} HIGH</span>`:""}
+        </div>
+      </div>
+    </div>
+
+    <!-- SCORES -->
+    <div class="grid grid-cols-1 md:grid-cols-5 gap-4 fade-up delay-1">
+      <div class="bg-brand-800 border border-brand-600 rounded-xl p-6 flex flex-col items-center justify-center">
+        <div class="w-28 h-28 flex items-center justify-center rounded-full border-4" style="border-color:${gc};background:${gc}10">
+          <span class="text-5xl font-black mono" style="color:${gc}">${getGrade(mobileOverall)}</span>
+        </div>
+        <span class="text-sm text-slate-400 mt-2 font-medium mono">${mobileOverall}/100</span>
+        <span class="text-[10px] text-slate-600 uppercase tracking-wider mt-0.5">Mobile Score</span>
+      </div>
+      <div class="md:col-span-4 grid grid-cols-2 md:grid-cols-4 gap-3">
+        ${cats.map(cat=>{
+          const catBorder=`border-l-2`;
+          return`<div class="bg-brand-800 border border-brand-600 rounded-xl p-4" style="border-left:3px solid ${getClr(cat.m)}">
+            <span class="text-[10px] font-bold text-slate-500 uppercase tracking-wider">${cat.label}</span>
+            <div class="flex items-center justify-between mt-3">
+              ${ring(cat.m,56,4)}
+              <div class="text-right">
+                <div class="flex items-center gap-1.5 justify-end"><span class="text-[10px] text-slate-600">\ud83d\udcf1</span><span class="text-lg font-bold mono" style="color:${getClr(cat.m)}">${cat.m}</span></div>
+                <div class="flex items-center gap-1.5 justify-end mt-1"><span class="text-[10px] text-slate-600">\ud83d\udcbb</span><span class="text-sm text-slate-500 mono">${cat.d}</span></div>
+              </div>
+            </div>
+          </div>`;
+        }).join("")}
+      </div>
+    </div>
+
+    <!-- ISSUES -->
+    <div class="bg-brand-800 border border-brand-600 rounded-xl fade-up delay-2">
+      <button onclick="toggleSection('issuesList')" class="w-full flex items-center justify-between p-4 text-left hover:bg-brand-700/50 transition rounded-t-xl">
+        <div class="flex items-center gap-3"><span class="text-orange-400">\u26a0\ufe0f</span><h2 class="text-sm font-bold">${issues.length} Issues Found</h2></div>
+        <span class="text-slate-600 text-xs">\u25bc</span>
+      </button>
+      <div id="issuesList" class="border-t border-brand-600 divide-y divide-brand-600 max-h-80 overflow-y-auto hidden">
+        ${issues.map(issue=>`
+          <div class="px-4 py-2.5 flex items-center gap-3 hover:bg-brand-700/30 transition">
+            <span class="text-[10px] font-bold uppercase px-1.5 py-0.5 rounded flex-shrink-0 mono ${priBg(issue.priority)}">${issue.priority}</span>
+            <span class="text-sm text-slate-300 flex-1">${issue.title}</span>
+            <span class="text-[10px] text-slate-600 flex-shrink-0 mono">${issue.cat}</span>
+          </div>
+        `).join("")}
+      </div>
+    </div>
+
+    <!-- SPRINT PLAN -->
+    <div class="bg-brand-800 border border-brand-600 rounded-xl fade-up delay-3">
+      <button onclick="toggleSection('sprintPlan')" class="w-full flex items-center justify-between p-4 text-left hover:bg-brand-700/50 transition rounded-t-xl">
+        <div class="flex items-center gap-3"><span class="text-term-green">\ud83d\udcca</span><h2 class="text-sm font-bold">Recommended Fix Plan & Costs</h2></div>
+        <span class="text-slate-600 text-xs">\u25bc</span>
+      </button>
+      <div id="sprintPlan" class="border-t border-brand-600">
+        ${[1,2,3].map(wk=>{
+          const wTasks=sprint.tasks.filter(t=>t.sprint===wk);
+          if(!wTasks.length)return"";
+          const label=wk===1?"Sprint 1 \u2014 Critical & High (Week 1)":wk===2?"Sprint 2 \u2014 Medium Priority (Weeks 2\u20133)":"Sprint 3 \u2014 Polish (Week 4)";
+          return`
+            <div class="px-4 py-2 bg-brand-700/50 border-b border-brand-600">
+              <span class="text-[10px] font-bold text-accent uppercase tracking-wider mono">${label}</span>
+            </div>
+            <div class="divide-y divide-brand-600/50">
+              ${wTasks.map(t=>`
+                <div class="px-4 py-2.5 flex items-center gap-3 hover:bg-brand-700/30 transition">
+                  <span class="text-[10px] font-bold uppercase px-1.5 py-0.5 rounded flex-shrink-0 mono ${priBg(t.priority)}">${t.priority}</span>
+                  <span class="text-sm text-slate-300 flex-1">${t.task}</span>
+                  <span class="text-[10px] text-slate-600 mono flex-shrink-0">${t.hours}h</span>
+                  <span class="text-sm font-semibold text-white mono w-14 text-right">\u00a3${t.cost}</span>
+                </div>
+              `).join("")}
+            </div>`;
+        }).join("")}
+
+        <!-- TOTALS -->
+        <div class="border-t-2 border-accent/20 bg-brand-700/50 p-5">
+          <div class="grid grid-cols-3 gap-3">
+            ${[["Total Hours",`${sprint.totalH}h`,"text-white"],["Estimated Cost",`\u00a3${sprint.totalC.toLocaleString()}`,"text-accent"],["Timeline",sprint.pkg.time,"text-white"]].map(([lbl,val,clr])=>`
+              <div class="bg-brand-800 border border-brand-600 rounded-lg p-3 text-center">
+                <p class="text-[10px] text-slate-600 uppercase tracking-wider font-semibold mb-1">${lbl}</p>
+                <p class="text-xl font-bold mono ${clr}">${val}</p>
+              </div>
+            `).join("")}
+          </div>
+
+          <!-- PACKAGE -->
+          <div class="mt-4 bg-gradient-to-r from-accent/10 to-accent/5 border border-accent/30 rounded-xl p-5 flex items-center justify-between flex-wrap gap-4">
+            <div>
+              <p class="text-[10px] uppercase tracking-wider text-accent font-bold mono">Recommended Package</p>
+              <p class="text-lg font-bold mt-1">${sprint.pkg.name}</p>
+              <p class="text-xs text-slate-400">All fixes + hosting & maintenance setup included</p>
+            </div>
+            <div class="text-right">
+              <p class="text-2xl font-bold text-accent mono">${sprint.pkg.price}</p>
+              <p class="text-[10px] text-slate-500">Monthly payments available</p>
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <div class="mt-4 text-center no-print">
+            <a href="mailto:hello@anthonyjohnson.dev?subject=Website%20Audit%20-%20${encodeURIComponent(siteName)}" class="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-white font-semibold px-6 py-3 rounded-lg transition text-sm">
+              Get This Fixed \u2192
+            </a>
+            <p class="text-xs text-slate-600 mt-2">Reply within 24 hours &bull; Based in Peterborough</p>
+          </div>
+
+          <!-- PRINT CTA -->
+          <div class="hidden print-show mt-4 p-4 border-t border-slate-200 text-center">
+            <p class="text-sm font-bold">Ready to fix these issues?</p>
+            <p class="text-sm text-slate-500 mt-1">Anthony D Johnson \u2014 Senior Web Developer, Peterborough</p>
+            <p class="text-xs text-slate-400 mt-1">anthonyjohnson.dev &bull; hello@anthonyjohnson.dev</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LEGEND -->
+    <div class="bg-brand-800 border border-brand-600 rounded-xl p-4">
+      <p class="text-[10px] font-bold text-slate-600 uppercase tracking-wider mb-2">Score Guide</p>
+      <div class="flex flex-wrap gap-4 text-xs">
+        ${[["A","90\u2013100","#4ade80","Excellent"],["B","80\u201389","#60a5fa","Good"],["C","65\u201379","#facc15","Needs Work"],["D","45\u201364","#fb923c","Poor"],["F","0\u201344","#f87171","Critical"]].map(([g,r,cl,l])=>
+          `<div class="flex items-center gap-1.5"><span class="w-5 h-5 rounded flex items-center justify-center font-bold text-xs text-brand-900 mono" style="background:${cl}">${g}</span><span class="text-slate-500">${r} \u2014 ${l}</span></div>`
+        ).join("")}
+      </div>
+    </div>
+
+    <p class="text-center text-xs text-slate-600">Powered by Google PageSpeed Insights &bull; Lighthouse analysis</p>
+  </div>`;
+}
+
+function toggleSection(id){const el=document.getElementById(id);if(el)el.classList.toggle("hidden");}
+
+async function startAudit(){
+  const inp=document.getElementById("urlInput");
+  const rawUrl=inp?inp.value.trim():"";
+  if(!rawUrl)return;
+  const target=fmtUrl(rawUrl);
+  renderLoading(target,1);
+  try{
+    const isHttps=target.startsWith("https");
+    await new Promise(r=>setTimeout(r,400));
+    renderLoading(target,2);
+    const mobResp=await fetch(`https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${encodeURIComponent(target)}&category=performance&category=accessibility&category=seo&category=best-practices&strategy=mobile&key=${PSI_KEY}`);
+    if(!mobResp.ok)throw new Error(`API returned ${mobResp.status}`);
+    const mob=await mobResp.json();
+    renderLoading(target,3);
+    const deskResp=await fetch(`https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${encodeURIComponent(target)}&category=performance&category=accessibility&category=seo&category=best-practices&strategy=desktop&key=${PSI_KEY}`);
+    if(!deskResp.ok)throw new Error(`API returned ${deskResp.status}`);
+    const desk=await deskResp.json();
+    renderLoading(target,4);
+    const mL=mob.lighthouseResult,dL=desk.lighthouseResult;
+    const sc=(lhr,cat)=>Math.round((lhr.categories?.[cat]?.score||0)*100);
+    const scores={
+      mobile:{performance:sc(mL,"performance"),seo:sc(mL,"seo"),accessibility:sc(mL,"accessibility"),bestPractices:sc(mL,"best-practices")},
+      desktop:{performance:sc(dL,"performance"),seo:sc(dL,"seo"),accessibility:sc(dL,"accessibility"),bestPractices:sc(dL,"best-practices")},
+    };
+    const mobileOverall=Math.round(Object.values(scores.mobile).reduce((a,b)=>a+b,0)/4);
+    const desktopOverall=Math.round(Object.values(scores.desktop).reduce((a,b)=>a+b,0)/4);
+    const issues=extractIssues(mL);
+    if(!isHttps&&!issues.find(i=>i.id==="is-on-https"))
+      issues.push({id:"is-on-https",title:"Does not use HTTPS",score:0,...AUDIT_TASKS["is-on-https"]});
+    renderLoading(target,5);
+    await new Promise(r=>setTimeout(r,300));
+    renderResults({siteName:mL.finalUrl||target,fetchTime:mL.fetchTime||new Date().toISOString(),isHttps,scores,mobileOverall,desktopOverall,issues,sprint:buildSprint(issues)});
+  }catch(err){
+    console.error(err);
+    const msg=err.message.includes("429")?"Rate limit reached. Wait a moment and
